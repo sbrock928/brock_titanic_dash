@@ -13,9 +13,13 @@ detail_table = dash_table.DataTable(id='detail_table',
                                     columns=[{"name": i, "id": i} for i in data_df],
                                     data=data_df.to_dict('records'),
                                     page_size=10,
+                                    style_as_list_view=True,
+                                    sort_action='native',
                                     style_table={'overflowX': 'auto',
                                                  'border': '3px solid black'},
-                                    style_header={'textAlign': 'left',
+                                    style_header={'padding-left':'0px',
+                                                    'margin-left' :'0px',
+                                                  'textAlign': 'left',
                                                   'fontWeight': 'bold',
                                                   'backgroundColor': '#3B3331',
                                                   'color': 'white'},
@@ -27,8 +31,9 @@ detail_table = dash_table.DataTable(id='detail_table',
                                                 'minWidth': '10px',
                                                 'width': '10px',
                                                 'maxWidth': '250px'},
-                                    style_as_list_view=True,
-                                    sort_action='native')
+                                    css = [{'selector': '.column-header-name', 'rule' : 'margin-left:unset;'}]
+
+)
 
 summary = html.Div([
 
